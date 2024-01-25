@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>APP Gestor de Tareas</title>
+
+    <!-- la hoja de estilo local(main.css) -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+
+    <!-- plantilla de Bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/minty/bootstrap.min.css" integrity="sha384-H4X+4tKc7b8s4GoMrylmy2ssQYpDHoqzPa9aKXbDwPoPUA3Ra8PA5dGzijN+ePnH" crossorigin="anonymous">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;800&display=swap" rel="stylesheet">
+</head>
+
+    <body>
+        <main class="container p4">
+             <h1 class="display-5 text-center mt4 titulo">Editar Tarea</h1>
+                <div class="row">
+                  <div class="col-md-4 offset-md-4 my-auto"> <!--Este div ocupará 4 columnas del espacio (centrado)-->
+
+                   <div class="card">
+                       <div class="card-header">
+                          <form action="{{ url_for('editar', id=tarea.id) }}" method="POST">
+                                <div class="form-group">
+                                    <label for="nueva_tarea">Nueva Tarea:</label>
+                                    <input type="text" name="nueva_tarea" value="{{ tarea.contenido }}" class="form-control" required>
+                                </div>
+                                    <button type="submit" class="btn btn-primary btn-block">Guardar Cambios</button>
+                          </form>
+                       </div>
+                   </div>
+                  </div>
+                </div>
+        </main>
+    </body>
+
+</html>
